@@ -1,0 +1,38 @@
+﻿@using Simulation4.ViewModel.PersonViewModel
+
+﻿
+@model List<PersonGetVm>
+<table class="table">
+    <thead class="thead-dark">
+        <a class="btn btn-success" asp-action="Create">Create</a>
+
+        <tr>
+            <th scope="col">#ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Image</th>
+            <th scope="col">Words</th>
+
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var person in Model)
+        {
+            <tr>
+                <th scope="row">@person.Id</th>
+                <td>@person.Name</td>
+                <td><img src="~images/@person.ImagePath" /></td>
+                <td>@person.Words</td>
+
+                <td>
+                    <a class="btn btn-primary" asp-action="Delete" asp-route-id="@person.Id">Delete</a>
+                    <a class="btn btn-danger" asp-action="Update" asp-route-id="@person.Id">Update</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+
+
+
+
+</table>
