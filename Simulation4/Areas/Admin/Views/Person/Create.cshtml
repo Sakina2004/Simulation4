@@ -1,26 +1,30 @@
-﻿@using Simulation4.ViewModel.PersonViewModel
-
-    @model PersonCreateVm
-   <form enctype="multipart/form-data" method="post" >
+﻿    @model PersonCreateVm
+<form method="post" enctype="multipart/form-data"  >
+   
     <div class="form-group">
-        <label for="exampleInputEmail1" asp-for="Image"></label>
+        <label for="exampleInputEmail1" asp-for="Image">Image</label>
         <input  class="form-control" asp-for="Image" placeholder="Shekili daxil edin!">
         <span asp-validation-for="Image" class="text-danger"></span>
     </div>
     <div class="form-group">
-        <label for="exampleInputEmail1" asp-for="Name"></label>
+        <label for="exampleInputEmail1" asp-for="Name">Name</label>
         <input  class="form-control" asp-for="Name" placeholder="Adinizi daxil edin!">
         <span asp-validation-for="Name" class="text-danger"></span>
     </div>
     <div class="form-group">
-        <label for="exampleInputEmail1" asp-for="Words"></label>
+        <label for="exampleInputEmail1" asp-for="Words">Words</label>
         <input  class="form-control"  asp-for="Words" placeholder="Soz  daxil edin!">
         <span asp-validation-for="Words" class="text-danger"></span>
     </div>
     <div class="form-group">
-        <label for="exampleInputEmail1" asp-for="PositionId"></label>
-        <input  class="form-control" asp-for="PositionId" placeholder="Position-Id  daxil edin!">
+        <label for="exampleInputEmail1" asp-for="PositionId">Position</label>
+        <select asp-for="PositionId" class="alert-info">
+        @foreach(var item in ViewBag.Positions)
+        {
+            <option value="@item.Id"> @item.Name</option>
+        }
+        </select>
         <span asp-validation-for="PositionId" class="text-danger"></span>
     </div>
-    <a type="submit" class="btn btn-primary" asp-action="Index">Submit</a>
+    <button type="submit" class="btn btn-primary">Submit</button>
 </form>

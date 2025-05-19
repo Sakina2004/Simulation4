@@ -1,11 +1,10 @@
-﻿@using Simulation4.ViewModel.PersonViewModel
-
-﻿
-@model List<PersonGetVm>
+﻿@model List<PersonGetVm>
+@{
+    int order = 1;
+}
 <table class="table">
     <thead class="thead-dark">
         <a class="btn btn-success" asp-action="Create">Create</a>
-
         <tr>
             <th scope="col">#ID</th>
             <th scope="col">Name</th>
@@ -19,9 +18,9 @@
         @foreach (var person in Model)
         {
             <tr>
-                <th scope="row">@person.Id</th>
+                <th scope="row">@(order++)</th>
                 <td>@person.Name</td>
-                <td><img src="~images/@person.ImagePath" /></td>
+                <td><img src="~imgs/@person.ImagePath" /></td>
                 <td>@person.Words</td>
 
                 <td>
@@ -31,8 +30,4 @@
             </tr>
         }
     </tbody>
-
-
-
-
 </table>

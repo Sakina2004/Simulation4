@@ -5,8 +5,8 @@
 
         public int Id { get; set; }
         public string Name { get; set; }
-        public string ImagePath { get; set; }
+        public IFormFile Image { get; set; }
         public string Words { get; set; }
-        public string Position { get; set; }
+        public int PositionId { get; set; }
     }
 }
